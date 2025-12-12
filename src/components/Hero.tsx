@@ -53,6 +53,19 @@ export default function Hero() {
                 <div className="text-center">
 
 
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="mb-6 relative w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-[#252525] shadow-2xl"
+                    >
+                        <img
+                            src="/profile.jpg"
+                            alt="Profile"
+                            className="w-full h-full object-cover"
+                        />
+                    </motion.div>
+
                     {/* n8n-style start node */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -115,7 +128,7 @@ export default function Hero() {
                             Get in Touch
                         </motion.a>
 
-                        <motion.a href="https://drive.google.com/file/d/11eY2yU37aY7d8XX4wEmuRUazGZYc49tN/view?usp=drive_link" target="_blank" className="btn-secondary text-sm flex items-center gap-2" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <motion.a href="https://drive.google.com/file/d/11eY2yU37aY7d8XX4wEmuRUazGZYc49tN/view" target="_blank" className="btn-secondary text-sm flex items-center gap-2" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                             <Download size={14} />
                             Resume
                         </motion.a>

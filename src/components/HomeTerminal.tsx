@@ -11,11 +11,7 @@ export default function HomeTerminal({ onComplete }: HomeTerminalProps) {
     const commands = [
         { text: "$ connect visitor_session", delay: 0 },
         { text: "> Connection established. Welcome! 👋", delay: 800 },
-        { text: "> Loading boring_resume_mode.exe...", delay: 1800 },
-        { text: "> Error: Too boring. Aborting.", delay: 2800 },
-        { text: "> Execute: enable_cool_mode.sh --force", delay: 3500 },
-        { text: "> Optimizing coffee intake...", delay: 4500 },
-        { text: "> Launching portfolio...", delay: 5500 },
+        { text: "> Launching portfolio...", delay: 1500 },
     ];
 
     const [currentLine, setCurrentLine] = useState(0);
