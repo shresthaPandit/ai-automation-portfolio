@@ -81,8 +81,8 @@ section {
 
 .card-hover:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 107, 107, 0.2);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 107, 107, 0.4);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.3), 0 0 30px rgba(255, 107, 107, 0.2), 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Buttons */
@@ -152,6 +152,15 @@ section {
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.6), 0 0 40px rgba(255, 107, 107, 0.4), 0 0 60px rgba(255, 107, 107, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.8), 0 0 50px rgba(255, 107, 107, 0.5), 0 0 70px rgba(255, 107, 107, 0.3);
+  }
 }
 
 .animate-float {

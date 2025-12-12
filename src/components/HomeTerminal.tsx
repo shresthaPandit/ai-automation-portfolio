@@ -9,9 +9,9 @@ interface HomeTerminalProps {
 
 export default function HomeTerminal({ onComplete }: HomeTerminalProps) {
     const commands = [
-        { text: "$ connect visitor_session", delay: 0 },
-        { text: "> Connection established. Welcome! 👋", delay: 800 },
-        { text: "> Launching portfolio...", delay: 1500 },
+        { text: "$ welcome --visitor", delay: 0 },
+        { text: "> Hello! Welcome to my portfolio.", delay: 400 },
+        { text: "> Launching portfolio...", delay: 600 },
     ];
 
     const [currentLine, setCurrentLine] = useState(0);
@@ -22,7 +22,7 @@ export default function HomeTerminal({ onComplete }: HomeTerminalProps) {
         if (currentLine >= commands.length) {
             const timeout = setTimeout(() => {
                 onComplete();
-            }, 1000);
+            }, 500);
             return () => clearTimeout(timeout);
         }
 

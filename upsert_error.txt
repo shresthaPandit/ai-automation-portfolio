@@ -1,0 +1,80 @@
+(400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Fri, 12 Dec 2025 12:31:18 GMT', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '149', 'Connection': 'keep-alive', 'x-pinecone-api-version': '2025-10', 'x-envoy-upstream-service-time': '0', 'server': 'envoy'})
+HTTP response body: {"error":{"code":"INVALID_ARGUMENT","message":"Error parsing request: Missing field_mapping field 'chunk_text' in record _id='test-1'"},"status":400}
+
+Traceback (most recent call last):
+  File "C:\Users\happy\pf_ag\scripts\debug_upsert.py", line 18, in <module>
+    index.upsert_records(
+    ~~~~~~~~~~~~~~~~~~~~^
+        namespace="ns1",
+        ^^^^^^^^^^^^^^^^
+        records=[{"id": "test-1", "text": "This is a test."}]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\db_data\index.py", line 681, in upsert_records
+    result = self._vector_api.upsert_records_namespace(_return_http_data_only=False, **args)
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 102, in __call__
+    return self.callable(self, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\core\openapi\db_data\api\vector_operations_api.py", line 805, in __upsert_records_namespace
+    return cast(None, self.call_with_http_info(**kwargs))
+                      ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\openapi_support\endpoint.py", line 134, in call_with_http_info
+    return self.api_client.call_api(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.settings["endpoint_path"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+        collection_formats=params["collection_format"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\openapi_support\api_client.py", line 320, in call_api
+    return self.__call_api(
+           ~~~~~~~~~~~~~~~^
+        resource_path,
+        ^^^^^^^^^^^^^^
+    ...<14 lines>...
+        _check_type,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\openapi_support\api_client.py", line 185, in __call_api
+    raise e
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\openapi_support\api_client.py", line 173, in __call_api
+    response_data = self.request(
+        method,
+    ...<6 lines>...
+        _request_timeout=_request_timeout,
+    )
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\openapi_support\api_client.py", line 400, in request
+    return self.rest_client.POST(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        url,
+        ^^^^
+    ...<5 lines>...
+        body=body,
+        ^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 146, in POST
+    return self.request(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<6 lines>...
+        body=body,
+        ^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\openapi_support\rest_urllib3.py", line 270, in request
+    return raise_exceptions_or_return(r)
+  File "C:\Users\happy\AppData\Local\Programs\Python\Python313\Lib\site-packages\pinecone\openapi_support\rest_utils.py", line 49, in raise_exceptions_or_return
+    raise PineconeApiException(http_resp=r)
+pinecone.exceptions.exceptions.PineconeApiException: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Date': 'Fri, 12 Dec 2025 12:31:18 GMT', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '149', 'Connection': 'keep-alive', 'x-pinecone-api-version': '2025-10', 'x-envoy-upstream-service-time': '0', 'server': 'envoy'})
+HTTP response body: {"error":{"code":"INVALID_ARGUMENT","message":"Error parsing request: Missing field_mapping field 'chunk_text' in record _id='test-1'"},"status":400}
+

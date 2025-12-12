@@ -148,14 +148,14 @@ export default function Projects() {
                                         </div>
 
                                         {/* Links */}
-                                        <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-50" style={{ transform: "translateZ(50px)" }}>
                                             {project.github && (
-                                                <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-white/10 backdrop-blur rounded-md text-white/90 hover:bg-white/20 transition-colors">
+                                                <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-white/10 backdrop-blur rounded-md text-white/90 hover:bg-white/20 transition-colors pointer-events-auto">
                                                     <Github size={14} />
                                                 </a>
                                             )}
                                             {project.demo && project.demo !== "#" && (
-                                                <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-white/10 backdrop-blur rounded-md text-white/90 hover:bg-white/20 transition-colors">
+                                                <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-white/10 backdrop-blur rounded-md text-white/90 hover:bg-white/20 transition-colors pointer-events-auto">
                                                     <ExternalLink size={14} />
                                                 </a>
                                             )}
