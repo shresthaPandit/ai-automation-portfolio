@@ -6,6 +6,7 @@ export const personalInfo = {
     email: "shresthapandit8@gmail.com",
     github: "https://github.com/shresthaPandit",
     linkedin: "https://www.linkedin.com/in/shrestha-pandit-24bba8263",
+    resume: "https://drive.google.com/file/d/1ysPLZVhFK-gENyf1eXGGKbmG-hzwDofM/view?usp=drivesdk",
     tagline: "Building intelligent automation solutions that save 1000+ hours and process 50K+ transactions monthly",
     summary: `AI Automation Engineer specializing in n8n workflow automation, API integrations, and intelligent business process automation. Built production-grade integration systems for 7+ enterprise clients including pharmaceutical giants like Combiphar and Galderma.`,
     summaryExtended: `Expert in creating zero-code/low-code automation solutions that reduce manual work by 50%+ and handle 1000+ daily transactions with 99.5% accuracy. Passionate about building systems that scale.`,

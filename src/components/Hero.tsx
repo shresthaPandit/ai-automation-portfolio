@@ -128,7 +128,7 @@ export default function Hero() {
                             Get in Touch
                         </motion.a>
 
-                        <motion.a href="https://drive.google.com/file/d/11eY2yU37aY7d8XX4wEmuRUazGZYc49tN/view" target="_blank" className="btn-secondary text-sm flex items-center gap-2" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <motion.a href={personalInfo.resume} target="_blank" className="btn-secondary text-sm flex items-center gap-2" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                             <Download size={14} />
                             Resume
                         </motion.a>
