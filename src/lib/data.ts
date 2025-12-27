@@ -58,6 +58,25 @@ export const experience = {
 
 export const projects = [
     {
+        title: "Loan Eligibility Engine",
+        subtitle: "AWS Serverless CSV Ingestion Stack",
+        description: "Frontend CSV uploader + AWS pipeline that lands files in S3, fans out via SQS, and posts the CSV payload into an n8n workflow for downstream processing.",
+        technologies: ["Python", "AWS Lambda", "S3", "SQS", "n8n", "API Gateway"],
+        features: [
+            "Presigned PUT URL ingestion",
+            "SQS-triggered processor Lambda",
+            "n8n webhook integration",
+            "Static HTML/CSS/JS uploader",
+            "Serverless Framework deployment",
+        ],
+        metrics: ["10MB file limit", "Secure presigned URLs", "Scalable fan-out architecture"],
+        github: "https://github.com/shresthaPandit/Loan-Eligibility-Engine",
+        demo: "https://www.loom.com/share/442ac0915e3c45d78e3924234bddcb71",
+        image: "/projects/placeholder.webp",
+        featured: true,
+        stars: 3,
+    },
+    {
         title: "DailyAI Voice",
         subtitle: "Automated AI News Podcaster",
         description: "Fully automated AI news podcast generator that fetches daily AI news, generates engaging scripts, and produces professional audio content with zero manual intervention.",
@@ -89,7 +108,7 @@ export const projects = [
             "SEO title generation",
         ],
         metrics: ["MVC architecture", "Mobile responsive", "Rich text editor"],
-        github: "https://github.com/shresthapandit/blogify", // Placeholder
+        github: "https://github.com/shresthaPandit/BLOGIFY",
         demo: "#", // Placeholder
         image: "/projects/blogify.png",
         featured: true,
@@ -113,19 +132,6 @@ export const projects = [
         image: "/projects/placeholder.webp",
         featured: true,
         stars: 2,
-    },
-    {
-        title: "Coming Soon",
-        subtitle: "New Project in Development",
-        description: "An exciting new project is currently in development. Stay tuned for updates!",
-        technologies: ["TBD"],
-        features: ["Details coming soon"],
-        metrics: [],
-        github: null,
-        demo: null,
-        image: "/projects/placeholder.webp",
-        featured: false,
-        stars: 0,
     },
 ];
 

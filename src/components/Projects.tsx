@@ -8,33 +8,33 @@ import { projects } from "@/lib/data";
 
 // Project-specific icons with vibrant but balanced colors
 const projectStyles: Record<string, { icon: React.ElementType; bg: string; iconBg: string; iconColor: string; label: string }> = {
+    "Loan Eligibility Engine": {
+        icon: Briefcase,
+        bg: "bg-gradient-to-br from-[#ff8e72]/40 via-[#ff6b6b]/30 to-[#ff8e72]/20",
+        iconBg: "bg-gradient-to-br from-[#ff8e72] to-[#ff6b6b]",
+        iconColor: "white",
+        label: "Serverless Stack"
+    },
     "DailyAI Voice": {
         icon: Mic,
-        bg: "bg-gradient-to-br from-[#ff6b6b]/40 via-[#ff8e72]/30 to-[#ff6b6b]/20",
-        iconBg: "bg-gradient-to-br from-[#ff6b6b] to-[#ff8e72]",
+        bg: "bg-gradient-to-br from-[#ff8e72]/40 via-[#ff6b6b]/30 to-[#ff8e72]/20",
+        iconBg: "bg-gradient-to-br from-[#ff8e72] to-[#ff6b6b]",
         iconColor: "white",
         label: "AI Voice Agent"
     },
     "Blogify": {
         icon: PenTool,
-        bg: "bg-gradient-to-br from-[#ff8e72]/40 via-[#ffa5a5]/30 to-[#ff6b6b]/20",
-        iconBg: "bg-gradient-to-br from-[#ff8e72] to-[#ffa5a5]",
+        bg: "bg-gradient-to-br from-[#ff8e72]/40 via-[#ff6b6b]/30 to-[#ff8e72]/20",
+        iconBg: "bg-gradient-to-br from-[#ff8e72] to-[#ff6b6b]",
         iconColor: "white",
         label: "Full-Stack Web App"
     },
     "AI Job Matching Engine": {
         icon: Briefcase,
-        bg: "bg-gradient-to-br from-[#ff5555]/40 via-[#ff6b6b]/30 to-[#ff8e72]/20",
-        iconBg: "bg-gradient-to-br from-[#ff5555] to-[#ff6b6b]",
+        bg: "bg-gradient-to-br from-[#ff8e72]/40 via-[#ff6b6b]/30 to-[#ff8e72]/20",
+        iconBg: "bg-gradient-to-br from-[#ff8e72] to-[#ff6b6b]",
         iconColor: "white",
         label: "n8n Automation"
-    },
-    "Coming Soon": {
-        icon: Sparkles,
-        bg: "bg-gradient-to-br from-[#ffa5a5]/40 via-[#ff8e72]/30 to-[#ff6b6b]/20",
-        iconBg: "bg-gradient-to-br from-[#ffa5a5] to-[#ff8e72]",
-        iconColor: "white",
-        label: "New Project"
     },
 };
 
@@ -120,62 +120,74 @@ export default function Projects() {
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 0.4, delay: index * 0.1 }}
                             >
-                                <TiltCard className="glass rounded-lg overflow-hidden card-hover group cursor-pointer">
-                                    {/* Vibrant gradient cover */}
-                                    <div className={`relative h-36 ${style.bg} overflow-hidden`} style={{ transform: "translateZ(20px)" }}>
-                                        {/* Decorative elements */}
-                                        <div className="absolute inset-0">
-                                            <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-white/5 blur-2xl" />
-                                            <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full bg-white/5 blur-2xl" />
+                                <a
+                                    href={project.github || "#"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block h-full no-underline"
+                                    onClick={(e) => {
+                                        if (!project.github || project.github === "#") {
+                                            e.preventDefault();
+                                        }
+                                    }}
+                                >
+                                    <TiltCard className="glass rounded-lg overflow-hidden card-hover group cursor-pointer h-full">
+                                        {/* Vibrant gradient cover */}
+                                        <div className={`relative h-36 ${style.bg} overflow-hidden`} style={{ transform: "translateZ(20px)" }}>
+                                            {/* Decorative elements */}
+                                            <div className="absolute inset-0">
+                                                <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-white/5 blur-2xl" />
+                                                <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full bg-white/5 blur-2xl" />
+                                            </div>
+
+                                            {/* Icon with solid gradient background */}
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <motion.div
+                                                    className={`w-14 h-14 rounded-xl ${style.iconBg} shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                                                    style={{ transform: "translateZ(40px)" }}
+                                                    whileHover={{ rotate: 5 }}
+                                                >
+                                                    <Icon className="w-7 h-7 text-white" />
+                                                </motion.div>
+                                            </div>
+
+                                            {/* Label */}
+                                            <div className="absolute bottom-3 left-3">
+                                                <span className="text-[10px] px-2 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/90 border border-white/10">
+                                                    {style.label}
+                                                </span>
+                                            </div>
+
+                                            {/* Links */}
+                                            <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-50" style={{ transform: "translateZ(50px)" }}>
+                                                {project.github && (
+                                                    <div className="p-1.5 bg-white/10 backdrop-blur rounded-md text-white/90 hover:bg-white/20 transition-colors pointer-events-none">
+                                                        <Github size={14} />
+                                                    </div>
+                                                )}
+                                                {project.demo && project.demo !== "#" && (
+                                                    <div onClick={(e) => { e.stopPropagation(); window.open(project.demo as string, '_blank'); }} className="p-1.5 bg-white/10 backdrop-blur rounded-md text-white/90 hover:bg-white/20 transition-colors pointer-events-auto cursor-pointer">
+                                                        <ExternalLink size={14} />
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
 
-                                        {/* Icon with solid gradient background */}
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <motion.div
-                                                className={`w-14 h-14 rounded-xl ${style.iconBg} shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                                                style={{ transform: "translateZ(40px)" }}
-                                                whileHover={{ rotate: 5 }}
-                                            >
-                                                <Icon className="w-7 h-7 text-white" />
-                                            </motion.div>
-                                        </div>
+                                        {/* Content */}
+                                        <div className="p-4" style={{ transform: "translateZ(10px)" }}>
+                                            <h3 className="text-base font-semibold text-[var(--foreground)] mb-1">{project.title}</h3>
+                                            <p className="text-xs text-[#ff8e72] mb-2">{project.subtitle}</p>
+                                            <p className="text-xs text-[var(--foreground-secondary)] mb-3 line-clamp-2">{project.description}</p>
 
-                                        {/* Label */}
-                                        <div className="absolute bottom-3 left-3">
-                                            <span className="text-[10px] px-2 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/90 border border-white/10">
-                                                {style.label}
-                                            </span>
+                                            {/* Tech */}
+                                            <div className="flex flex-wrap gap-1">
+                                                {project.technologies.slice(0, 4).map((tech) => (
+                                                    <span key={tech} className="tech-badge text-[10px]">{tech}</span>
+                                                ))}
+                                            </div>
                                         </div>
-
-                                        {/* Links */}
-                                        <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-50" style={{ transform: "translateZ(50px)" }}>
-                                            {project.github && (
-                                                <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-white/10 backdrop-blur rounded-md text-white/90 hover:bg-white/20 transition-colors pointer-events-auto">
-                                                    <Github size={14} />
-                                                </a>
-                                            )}
-                                            {project.demo && project.demo !== "#" && (
-                                                <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-white/10 backdrop-blur rounded-md text-white/90 hover:bg-white/20 transition-colors pointer-events-auto">
-                                                    <ExternalLink size={14} />
-                                                </a>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="p-4" style={{ transform: "translateZ(10px)" }}>
-                                        <h3 className="text-base font-semibold text-[var(--foreground)] mb-1">{project.title}</h3>
-                                        <p className="text-xs text-[#ff8e72] mb-2">{project.subtitle}</p>
-                                        <p className="text-xs text-[var(--foreground-secondary)] mb-3 line-clamp-2">{project.description}</p>
-
-                                        {/* Tech */}
-                                        <div className="flex flex-wrap gap-1">
-                                            {project.technologies.slice(0, 4).map((tech) => (
-                                                <span key={tech} className="tech-badge text-[10px]">{tech}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </TiltCard>
+                                    </TiltCard>
+                                </a>
                             </motion.div>
                         );
                     })}
